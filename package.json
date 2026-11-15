@@ -1,6 +1,12 @@
 {
+  "scripts":{
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.5",
     "tailwindcss": "^4.3.5"
+  },
+  "devDependencies": {
+    "daisyui": "^5.8.1"
   }
 }
