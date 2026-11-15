@@ -4,9 +4,8 @@ on:
   push:
     branches: [ main ]
 
-
-
 jobs:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -23,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Tailwind css compile
-        run: npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify
+        run: npm run build:css
 
       - name: GitHub Pages artifact upload
         uses: actions/upload-pages-artifact@v3
