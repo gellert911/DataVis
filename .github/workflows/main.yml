@@ -1,0 +1,42 @@
+name: deploy with tailwind css
+
+on: 
+  push:
+    branches: [ main ]
+
+
+
+jobs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout (load code)
+        uses: actions/checkout@v4
+
+      - name: node js setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: download dependencies
+        run: npm ci
+
+      - name: Tailwind css compile
+        run: npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify
+
+      - name: GitHub Pages artifact upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Github Pages deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
