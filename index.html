@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="business">
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@6.4.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.5.0"></script>
@@ -8,9 +8,39 @@
   <title>DataVis</title>
 </head>
 <body>
-  <h1 class="text-3xl font-bold">szia, vizualizacio!</h1>
-  <div id="vis"/>
-  <button class="btn btn-outline">Kattints!</button>
+
+  <nav class="w-full bg-base-300 mb-3">
+    <div class="navbar max-w-screen-3xl mx-auto px-4 flex justify-between items-center">
+        <a class="btn btn-ghost text-xl">Adatvizualizáció</a>
+        <span class="font-medium">Gellert</span>
+    </div>
+  </nav>
+
+  <div class="max-w-screen-3xl mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-3">szia, vizualizacio!</h1>
+
+    <div class="grid grid-rows-1 md:grid-rows-2 gap-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="card bg-base-300 w-full h-full border-1 border-dashed border-base-content">
+          <div class="card-body flex flex-col">
+            <h2 class="card-title">Vizualizacio #1</h2>
+            <div class="flex-1 flex items-center justify-center">
+              <div id="vis"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card bg-base-300 w-full h-full border-1 border-dashed border-base-content">
+          <div class="card-body flex flex-col">
+            <h2 class="card-title">Vizualizacio #2</h2>
+            <div class="flex-1 flex items-center justify-center">
+              <p class="m-0 text-center">Itt fog megjelenni a masodik vizualizacio :)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script>
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
